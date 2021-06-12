@@ -1,5 +1,16 @@
 # code_practice
-The short: Deciphering or Practicing coding concepts that are currently confusing me
 
-The long: I want a repository online where I can both itteratively practice coding concepts and share/submit said work to my communities for constructive feedback.
-In addition, I'm hoping this will further-incentivize me to do daily, deliberate practice (and show a record of any-such to others). 
+### This is my Daily Deliberate Practice repo
+
+#### In this repo, you will find the following:
+- [ ] Data Structure-specific algorithm practice in Ruby
+> First round is following the explicit instructions
+>
+> Second round will be producing algorithms in two or more formulations, for time (will time each and note results)
+- [ ] Data Structure-specific algorithm practice in JS 
+> ( One I have completed my first round of Ruby )
+- [ ] Data Structure-specific algorithm practice in c++
+> ( By this point, my expectation is to have ruby pretty firmly under my belt, and a reasonable understanding of JS ... so I want to start developing .exe / UE4 language skills )
+
+- [ ] (Eventually) I will have particularly perplexing problems stored here as well
+
