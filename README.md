@@ -3,7 +3,7 @@
 ### This is my Daily Deliberate Practice repo
 
 #### In this repo, you will find the following:
-- [ ] Data Structure-specific algorithm practice in Ruby
+- [x] Data Structure-specific algorithm practice in Ruby
 > First round is following the explicit instructions
 >
 > Second round will be producing algorithms in two or more formulations, for time (will time each and note results)
