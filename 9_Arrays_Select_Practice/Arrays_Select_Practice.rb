@@ -1,7 +1,7 @@
 #  1. Start with an array of numbers and create a new array with only the numbers less than 20.
 #     For example, [2, 32, 80, 18, 12, 3] becomes [2, 18, 12, 3].
 
-input_array = [2, 32, 80, 18, 12, 3]
+# input_array = [2, 32, 80, 18, 12, 3]
 
 # loop through the array, checking whether the given index is less than 20,
 # and store those that are in a new array
