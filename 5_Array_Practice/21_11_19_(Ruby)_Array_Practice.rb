@@ -2,6 +2,22 @@
 
 
 
+threeWords = ["one", "two", "three"]
+
+p "How do you spell 4 & 5?"
+
+moreNumbers = gets.chomp.split
+
+
+
+threeWords += moreNumbers
+
+
+
+p threeWords
+
+
+
 # 2. Create an array to store 4 letters. Then change the second letter to a number and print the array on one line.
 
 
@@ -39,6 +55,8 @@
 
 
 # SOLUTIONS: https://gist.github.com/peterxjang/7095a2b19e1da2cc18d4a0dcd66cb8f1
+
+
 
 @sou7hernsaint
 
