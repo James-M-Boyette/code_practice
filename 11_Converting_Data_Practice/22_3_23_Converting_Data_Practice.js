@@ -91,17 +91,101 @@
 //  6. Convert an array of strings into a hash with keys for each string in the array and values for the number of times the string appears in the array.
 //     For example, ["do", "or", "do", "not"] becomes {"do" => 2, "or" => 1, "not" => 1}.
 
+// const string = ["do", "or", "do", "not"]
+
+// const counter = (input) => {
+//   let output = {};
+//   for (const element of input){
+//     // console.log(element);
+//     if (output[element]){
+//       output[element] ++;
+//     } else {
+//       output[element] = 1
+//     }
+//   }
+//   return output 
+// }
+
+// console.log(counter(string));
 
 //  7. Convert a hash into a flat array containing all the hash’s keys and values.
 //     For example, {"a" => 1, "b" => 2, "c" => 3, "d" => 4} becomes ["a", 1, "b", 2, "c", 3, "d", 4].
 
+// const object1 = {"a" : 1, "b" : 2, "c" : 3, "d" : 4}
+
+// const squash = (input) => {
+//   let output = [];
+//   for (const element in input){
+//     output.push(element);
+//     output.push(input[element])
+//   }
+//   return output
+// }
+
+// console.log(squash(object1))
+
 //  8. Combine data from a hash with names and prices and an array of hashes with names, colors, and weights to make a new hash.
 //     For example, {"chair" => 75, "book" => 15} and [{name: "chair", color: "red", weight: 10}, {name: "book", color: "black", weight: 1}] becomes {"chair" => {price: 75, color: "red", weight: 10}, "book" => {price: 15, color: "black", weight: 1}}.
 
+// const prices = {"chair" : 75, "book" : 15};
+// const items = [{name: "chair", color: "red", weight: 10}, {name: "book", color: "black", weight: 1}]
+
+// const merge = (input1, input2) => {
+//   let output = {};
+//   let i = 0;
+//   for (const element in input1){
+//     delete input2[i].name
+//     input2[i]["price"] = input1[element];
+//     output[element] = input2[i];
+//     i ++
+//   }
+//   return output
+// }
+
+// console.log(merge(prices,items));
+
+
 //  9. Convert an array of hashes into a hash of arrays, using the author as keys and the titles as values.
 //     For example, [{author: "Jeff Smith", title: "Bone"}, {author: "George Orwell", title: "1984"}, {author: "Jeff Smith", title: "RASL"}] becomes {"Jeff Smith" => ["Bone", "RASL"], "George Orwell" => ["1984"]}.
+// Make a new object with Keys = the author names, and values = an array of one or more published works
+
+// const thing = [{author: "Jeff Smith", title: "Bone"}, {author: "George Orwell", title: "1984"}, {author: "Jeff Smith", title: "RASL"}];
+
+// const catelogue = (input) => {
+//   let output = {};
+//   for (const element of input){
+//     // console.log(element); // original objects
+//     // console.log(element.author); // original objects
+//     let author = element.author;
+//     // console.log(output[element])
+//     console.log(output[element.author])
+//     if (!output[author]){ // The only conclusion I can draw, here, is that my logic was generally correct; specifically, however, "undefined" =/= "false"
+//       output[author] = [element.title]
+//     } else {
+//       output[author].push(element.title)
+//       // output.author.push(element.title)
+//       // output[element.author].push(element.title)
+//     }
+//   }
+//   return output
+// }
+
+// console.log(catelogue(thing))
+// catelogue(thing)
 
 // 10. Given a hash, create a new hash that has the keys and values switched.
 //     For example, {"a" => 1, "b" => 2, "c" => 3} becomes {1 => "a", 2 => "b", 3 => "c"}.
+
+const hash = {"a" : 1, "b" : 2, "c" : 3};
+
+const switcher = (input) => {
+  let output = {};
+  for (const element in input){
+    output[parseInt(input[element])] = element
+  }
+  return output
+}
+
+console.log(switcher(hash))
 
 // SOLUTIONS: https://gist.github.com/peterxjang/216a7a6e8411ee5c05118e78022f2bc7
