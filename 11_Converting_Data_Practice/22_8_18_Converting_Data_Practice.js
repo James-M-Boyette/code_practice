@@ -156,11 +156,66 @@ console.log("myTalley:", myTalley);
 //  7. Convert a hash into a flat array containing all the hash’s keys and values.
 //     For example, {"a" => 1, "b" => 2, "c" => 3, "d" => 4} becomes ["a", 1, "b", 2, "c", 3, "d", 4].
 
+// So, simply change the hash into an array
+const object3 = { a: 1, b: 2, c: 3, d: 4 };
+
+function objectToArray(obj) {
+  // Store the keys
+  const keys = Object.keys(obj);
+  // For each key, store it and it's value in an array
+  const convertedArray = keys.reduce((acc, cur) => {
+    acc.push(cur, obj[cur]);
+    return acc;
+  }, []);
+  // return the array
+  return convertedArray;
+}
+
+const myArray3 = objectToArray(object3);
+console.log("myArray3:", myArray3);
+
 //  8. Combine data from a hash with names and prices and an array of hashes with names, colors, and weights to make a new hash.
 //     For example, {"chair" => 75, "book" => 15} and [{name: "chair", color: "red", weight: 10}, {name: "book", color: "black", weight: 1}] becomes {"chair" => {price: 75, color: "red", weight: 10}, "book" => {price: 15, color: "black", weight: 1}}.
 
+// So, merge these two objects such that the prices of the hash are combined witht he name, color and weight of the arrayed objects - all attached as hashed values of the keys
+
+const object4 = { chair: 75, book: 15 };
+const array6 = [
+  { name: "chair", color: "red", weight: 10 },
+  { name: "book", color: "black", weight: 1 },
+];
+
+function fuser(obj, array) {
+  const keys = Object.keys(obj);
+  const newList = keys.reduce((acc, cur) => {
+    array6.forEach((element) => {
+      if (element.name == cur) {
+        acc[cur] = {
+          price: obj[cur], // give me the *value* of object4's/hash's cur[rent] key
+          color: element.color, // give me the *value* array6's current index's/current hash's 'color' key
+          weight: element.weight,
+        };
+      }
+    });
+    return acc;
+  }, {});
+  // for each key in our hash,
+  // check whether it exists in one of the objects
+  // if it does, store 'price' with the hashes value, the color and weight k:v's in an object ... all as the nested hash value of the original hash's key
+  return newList;
+}
+
+const singleList = fuser(object4, array6);
+console.log("singleList", singleList);
+
+// What'd we learn?
+// That we still don't understand hashes like we'd like to ... why is price's value called with brackets, but color and weight with '.' ?
+// Also, that we're learning to return more complicated objects ... previoiusly, I think I needed to return a single value etc .. but I can return anything I want, it seems
+
 //  9. Convert an array of hashes into a hash of arrays, using the author as keys and the titles as values.
 //     For example, [{author: "Jeff Smith", title: "Bone"}, {author: "George Orwell", title: "1984"}, {author: "Jeff Smith", title: "RASL"}] becomes {"Jeff Smith" => ["Bone", "RASL"], "George Orwell" => ["1984"]}.
+
+//
 
 // 10. Given a hash, create a new hash that has the keys and values switched.
 //     For example, {"a" => 1, "b" => 2, "c" => 3} becomes {1 => "a", 2 => "b", 3 => "c"}.
