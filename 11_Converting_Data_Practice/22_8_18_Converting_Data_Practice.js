@@ -214,10 +214,85 @@ console.log("singleList", singleList);
 
 //  9. Convert an array of hashes into a hash of arrays, using the author as keys and the titles as values.
 //     For example, [{author: "Jeff Smith", title: "Bone"}, {author: "George Orwell", title: "1984"}, {author: "Jeff Smith", title: "RASL"}] becomes {"Jeff Smith" => ["Bone", "RASL"], "George Orwell" => ["1984"]}.
+// [{key:value}, {}] => {author: title} where multiple titles are stored with the same author
 
-//
+const array9 = [
+  { author: "Jeff Smith", title: "Bone" },
+  { author: "George Orwell", title: "1984" },
+  { author: "Jeff Smith", title: "RASL" },
+];
+
+function arrayHashToHashArrays(inputArray) {
+  const hashedArrays = inputArray.reduce((acc, cur) => {
+    const authorKey = cur.author;
+    const writtenWorkTitle = cur.title;
+
+    if (Object.keys(acc).includes(authorKey)) {
+      console.log(`${authorKey} exists!`);
+      acc[authorKey].push(writtenWorkTitle);
+      return acc;
+    } else {
+      console.log(`${authorKey} does NOT exist...`);
+      acc[authorKey] = [writtenWorkTitle];
+      return acc;
+    }
+  }, {});
+  return hashedArrays;
+}
+const result = arrayHashToHashArrays(array9);
+
+console.log("Hashed author Arrays:", result);
+
+// What'd we learn:
+// - First, that in order to declare an object's key as the contents of another variable, we need to use square brackets ('[]') ... otherwise, the key will be interpreted as a new string declaration (so, "authorKey" is interpreted as `authorKey: 'some value'` while [authorKey] is interpreted as `'some key': 'some value'`)
+// - Second, we struggled for a while in our conditional because we failed to properly check whether the current key already existed in the acc object ... because we were checking whether the accumulator's *value* matched the current *key* - as soon as we realized this, we did (thankfully) know to switch to Object.keys(acc).includes
+// - Third, we forgot .push for a second, but immediately realized that would fix the author titles array (so not a big deal - but it wasn't the initial thought)
+// - Fourth, we failed to write pseudo code ... need to fix that
 
 // 10. Given a hash, create a new hash that has the keys and values switched.
 //     For example, {"a" => 1, "b" => 2, "c" => 3} becomes {1 => "a", 2 => "b", 3 => "c"}.
+// If we have {a: 1, b: 2} etc it should become {1: a, 2: b}
+
+// myObject = { a: 1, b: 2, c: 3 }
+
+// What do we want to do?
+// 1. Run through the object, as if it were an array, switching keys for values
+// > We can store the keys in an array using Objects.keys
+// > Then we can call each key - by running some kind of loop on the Objects.keys array
+// > We can store each key called in a variable called "keyToValue"
+// > We can store each value in a variable called "valueToKey"
+// 2. Storing the new K:Vs in a new object
+// 3. returning that new object
+
+// Edge Case questions:
+// - What should happen if the value is an object (an hash, an array etc)?
+// > Should the value be ignored?
+// > Should the value be unpacked, and have its keys and values stored at the highest level (flattening the hash)?
+// - What should happen if two values match? They would potentially have different keys - should those keys be combined into an array etc?
+
+// result = { 1: "a", 2: "b", 3: "c" }
+
+const object10 = { a: 1, b: 2, c: 3 };
+
+function kvSwitcher(inputObect) {
+  const keys = Object.keys(inputObect);
+  const inverted = {};
+  for (let i = 0; i < keys.length; i++) {
+    // const key = keys[i];
+    const keyToValue = keys[i];
+    const valueToKey = inputObect[keyToValue];
+    console.log("key, value:", valueToKey, keyToValue);
+    inverted[valueToKey] = keyToValue;
+  }
+  // keys.reduce((acc, cur) => {
+  //   const key = acc
+  // });
+  // console.log("keys:", keys);
+  return inverted;
+}
+
+const reversedObject = kvSwitcher(object10);
+
+console.log("kvSwitcher results:", reversedObject);
 
 // SOLUTIONS: https://gist.github.com/peterxjang/216a7a6e8411ee5c05118e78022f2bc7
