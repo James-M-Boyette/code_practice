@@ -276,19 +276,14 @@ const object10 = { a: 1, b: 2, c: 3 };
 
 function kvSwitcher(inputObect) {
   const keys = Object.keys(inputObect);
-  const inverted = {};
+  const flippedKVs = {};
   for (let i = 0; i < keys.length; i++) {
-    // const key = keys[i];
     const keyToValue = keys[i];
     const valueToKey = inputObect[keyToValue];
     console.log("key, value:", valueToKey, keyToValue);
-    inverted[valueToKey] = keyToValue;
+    flippedKVs[valueToKey] = keyToValue;
   }
-  // keys.reduce((acc, cur) => {
-  //   const key = acc
-  // });
-  // console.log("keys:", keys);
-  return inverted;
+  return flippedKVs;
 }
 
 const reversedObject = kvSwitcher(object10);
