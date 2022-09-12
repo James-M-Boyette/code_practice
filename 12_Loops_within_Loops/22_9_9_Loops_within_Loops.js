@@ -88,6 +88,38 @@ console.log("3) all paired:", pairedUp);
 // 4. Use a nested loop to find the largest product of any two different numbers within a given array.
 //    For example, [5, -2, 1, -9, -7, 2, 6] becomes 63.
 
+const array4 = [5, -2, 1, -9, -7, 2, 6];
+
+// So, -9 * -7 = 63
+// We need to evaluate whether the two numbers are the same
+// We need to return the product of all pairs, possibly
+//    - In this case, we'd multiply 5 * all other numbers, and tehn -2 * all subsequent ones
+//    - We'd also need to compare the last with the current, and return both the original digits + the product ... if it's bigger
+//
+
+const greatestProduct = (inputArray) => {
+  let maxProduct = inputArray[0] * inputArray[1];
+  let parentNumbers = [];
+
+  for (let i = 0; i < inputArray.length - 1; i++) {
+    console.log("🚀current Element:", i);
+    for (let i2 = i + 1; i2 < inputArray.length - 1; i2++) {
+      const currentProduct = inputArray[i] * inputArray[i2];
+      console.log("current product:", currentProduct);
+      if (currentProduct > maxProduct) {
+        maxProduct = currentProduct;
+        parentNumbers = [inputArray[i], inputArray[i2]];
+      }
+      console.log("max product:", maxProduct);
+    }
+  }
+
+  return { maxProduct, parentNumbers };
+};
+
+const result4 = greatestProduct(array4);
+console.log("result4:", result4);
+
 // 5. Use a nested loop to compute the sum of all the numbers in an array of number pairs.
 //    For example, [[1, 3], [8, 9], [2, 16]] becomes 39.
 
