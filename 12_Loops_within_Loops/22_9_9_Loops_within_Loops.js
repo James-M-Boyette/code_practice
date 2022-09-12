@@ -1,11 +1,89 @@
 // 1. Use a nested loop to convert an array of number pairs into a single flattened array.
 //    For example, [[1, 3], [8, 9], [2, 16]] becomes [1, 3, 8, 9, 2, 16].
 
+// So, all sub-arrays should be elevated such that there's only one array with all elements
+
+const array1 = [
+  [1, 3],
+  [8, 9],
+  [2, 16],
+];
+
+// Read each element of the parent array
+// Store its child elements in a new array
+// Return the new array
+
+function flatten(inputArray) {
+  const flattenedArray = inputArray.reduce((acc, cur) => {
+    cur.forEach((element) => {
+      acc.push(element);
+    });
+    return acc;
+  }, []);
+  return flattenedArray;
+}
+
+const results1 = flatten(array1);
+
+console.log("1) results1:", results1);
+
+// What did we learn?
+// Not much, here - reduce was a good move for creating the new array (though .map would likely have been just as good) and forEach works fine for readability of the nested
+
 // 2. Use a nested loop with two arrays of strings to create a new array of strings with each string combined.
 //    For example, ["a", "b", "c"] and ["d", "e", "f", "g"] becomes ["ad", "ae", "af", "ag", "bd", "be", "bf", "bg", "cd", "ce", "cf", "cg"].
 
+// So, we want to create one array with every element of the first array paired with every element of the seond one - so you'll get n1 * n2 elements in the new array
+
+const array2a = ["a", "b", "c"];
+const array2b = ["d", "e", "f", "g"];
+
+function merge(inputArray1, inputArray2) {
+  let mergedArray = inputArray1.reduce((acc, firstArrayElement) => {
+    inputArray2.forEach((secondArrayElement) => {
+      acc.push(firstArrayElement + secondArrayElement);
+    });
+    return acc;
+  }, []);
+  return mergedArray;
+}
+
+const combo = merge(array2a, array2b);
+
+console.log("2) Combined Arrays:", combo);
+
 // 3. Use a nested loop with one array of strings to create a new array that contains every combination of each string with every other string in the array.
 //    For example, ["a", "b", "c", "d"] becomes ["ab", "ac", "ad", "ba", "bc", "bd", "ca", "cb", "cd", "da", "db", "dc"].
+
+// So n * n-1, because there should be no repeats ("aa" or "bb")
+
+const array3 = ["a", "b", "c", "d"];
+
+// We should go through the array, one element at a time
+// Then, we should create a new array and push said element + each remaining element
+// Problem: how do we avoid duplicating the current element ("aa")? And, how do we make sure we get all previous element?
+
+const touchAllOthers = (inputArray) => {
+  const paired = [];
+  for (let i = 0; i < inputArray.length; i++) {
+    const currentElement = inputArray[i];
+    inputArray.forEach((otherElement) => {
+      // console.log(
+      //   "Current Element, Other Element:",
+      //   currentElement,
+      //   otherElement
+      // );
+      if (currentElement !== otherElement) {
+        paired.push(currentElement + otherElement);
+      }
+    });
+  }
+  return paired;
+};
+
+const pairedUp = touchAllOthers(array3);
+
+console.log("3) all paired:", pairedUp);
 
 // 4. Use a nested loop to find the largest product of any two different numbers within a given array.
 //    For example, [5, -2, 1, -9, -7, 2, 6] becomes 63.
