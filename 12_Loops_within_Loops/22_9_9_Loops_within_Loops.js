@@ -120,8 +120,22 @@ const greatestProduct = (inputArray) => {
 const result4 = greatestProduct(array4);
 console.log("result4:", result4);
 
+const greatestProductHashed = (inputArray) => {
+  let hash = {}
+  for (let i = 0; i < inputArray.length; i++) {
+    
+    hash[inputArray[i]] = 
+  }
+};
+
+console.log("result4b:", greatestProductHashed(array4));
+
 // 5. Use a nested loop to compute the sum of all the numbers in an array of number pairs.
 //    For example, [[1, 3], [8, 9], [2, 16]] becomes 39.
+
+// So, in an array of arrays, where each child array has numbers, the function should add them together and return the sum
+// It should do this by running through the parent array, one element at a time,
+// ... and reading the child elements
 
 // 6. Use a nested loop with two arrays of numbers to create a new array of the sums of each combination of numbers.
 //    For example, [1, 2] and [6, 7, 8] becomes [7, 8, 9, 8, 9, 10].
