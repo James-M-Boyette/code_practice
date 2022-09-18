@@ -57,3 +57,23 @@ function isSumPresentHashed(input, sum) {
 // And check whether what we need is already in the hash (because if it's already in the hash, we don't need to store the current element - we have the pair we need)
 // ...
 // The has allows us to not loop through what we've already checked AND it lets us avoid looping through the entire array unnecessarily
+
+const array = [2, 5, 3, 1, 0, 7, 11];
+
+const sumsTo10 = (inputArray) => {
+  let hash = {};
+
+  for (let i = 0; i < inputArray.length; i++) {
+    const target = 10 - inputArray[i];
+
+    if (hash[target]) {
+      return [target, inputArray[i]];
+    }
+
+    hash[inputArray[i]] = true;
+  }
+
+  return false;
+};
+
+console.log("Sums to 10:", sumsTo10(array));
