@@ -1,17 +1,15 @@
-# code_practice
+# code_practice (my Daily Deliberate Practice repo)
 
-### This is my Daily Deliberate Practice repo
+## What is it?
+Here, I commit my near-daily deliberate practice. The sense of accomplishment it gives - especially when a project is progressing slowly - is 👌. Also, just like my mother (a professional painter), this stuff atrophies if I don't keep it fresh. 😩
 
-#### In this repo, you will find the following:
+#### Currently, I'm ...
+- [x] Ruby
+- [x] JavaScript
+- [x] Use (and get more comfortable with) more complex methods (like `reduce()`) where possible
+- [ ] Trying to learn how hash maps can be used in place of nested loops
 
-- [x] Data Structure-specific algorithm practice in Ruby
-  > First round is following the explicit instructions
-  >
-  > Second round will be producing algorithms in two or more formulations, for time (will time each and note results)
-- [ ] Data Structure-specific algorithm practice in JS
-  > ( One I have completed my first round of Ruby )
-- [ ] Data Structure-specific algorithm practice in c++
-
-  > ( By this point, my expectation is to have ruby pretty firmly under my belt, and a reasonable understanding of JS ... so I want to start developing .exe / UE4 language skills )
-
-- [ ] (Eventually) I will have particularly perplexing problems stored here as well
+#### In the future, I hope to ...
+- [ ] Be able to complete an entire sheet in under 20 mins (in JS)
+- [ ] Python
+- [ ] C/C++/C#
