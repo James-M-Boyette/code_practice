@@ -76,22 +76,81 @@ console.log(`#5 array5 (${array5}) becomes ${result5}`);
 //  6. Start with an array of hashes and create a new array of number values from each hash's :age key.
 
 //     For example, [{name: "Alice", age: 27}, {name: "Blane", age: 16}] becomes [27, 16].
+// So, take in an array filled with hashes, and create a new array with the values associated with the 'age' key of each element
+
+const array6 = [
+  { name: "Alice", age: 27 },
+  { name: "Blane", age: 16 },
+];
+
+const ageReader = (inputArray) => {
+  return inputArray.map((element) => element.age);
+};
+
+const result6 = ageReader(array6);
+
+console.log(`#6 array6 (${array6}) becomes ${result6}`);
 
 //  7. Start with an array of numbers and create a new array with each number divided by 2.
 
 //     For example, [1, 2, 3] becomes [0.5, 1.0, 1.5].
+// So, we take in an array of numbers, and then produce a new array with each of the original elements divided by 2
+
+const array7 = [1, 2, 3];
+
+const dividedByTwo = (inputArray) => {
+  return inputArray.map((element) => element / 2);
+};
+
+const result7 = dividedByTwo(array7);
+
+console.log(`#7 array7 (${array7}) becomes ${result7}`);
 
 //  8. Start with an array of strings and create a new array with each string's first letter only.
 
 //     For example, ["hello", "goodbye"] becomes ["h", "g"].
+// So, take in an array of strings, and then create a new array with only the first letter of each element (string)
+
+const array8 = ["hello", "goodbye"];
+
+const firstLetterSelector = (inputArray) => {
+  return inputArray.map((element) => element.charAt(0));
+};
+
+const result8 = firstLetterSelector(array8);
+console.log(`#8 array8 (${array8}) becomes ${result8}`);
 
 // 9.  Start with an array of hashes and create a new array of number values from each hash's :age key times 2.
 
 //     For example, [{name: "Alice", age: 27}, {name: "Blane", age: 16}] becomes [54, 32].
+// So, an array of hashes is taken in, each hash's 'age' value should be multiplied by 2, and that result should be stored in a new array
+
+const array9 = [
+  { name: "Alice", age: 27 },
+  { name: "Blane", age: 16 },
+];
+
+const doubleAge = (inputArray) => {
+  return inputArray.map((element) => element.age * 2);
+};
+
+const result9 = doubleAge(array9);
+console.log(`#9 array9 (${array9}) becomes ${result9}`);
 
 // 10. Start with an array of numbers and create a new array with each number converted into a string.
 
 //     For example, [1, 2, 3] becomes ["1", "2", "3"].
+// So, an array of numbers is taken in, and each element (a number) is converted into a string, and stored in a new array (which will be returned)
+const array10 = [1, 2, 3];
+
+const stringifyNumbers = (inputArray) => {
+  return inputArray.map((element) => element.toString());
+};
+
+const result10 = stringifyNumbers(array10);
+console.log(
+  `#10 array10 (${array10}) becomes ${result10}; ${typeof result10[0]}`
+);
 
 // SOLUTIONS (using while loop): https://gist.github.com/peterxjang/b9ac4390aad2301a2238efc95c904f3d
 
