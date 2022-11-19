@@ -56,9 +56,9 @@ const largestProduct = (inputArray) => {
   let highestProduct = null;
   for (const el of inputArray) {
     const otherNums = inputArray.filter((x) => x !== el);
-    console.log("otherNums:", otherNums);
+    // console.log("otherNums:", otherNums);
     for (const filteredEl of otherNums) {
-      console.log(`Product of ${el} * ${filteredEl} = ${el * filteredEl}`);
+      // console.log(`Product of ${el} * ${filteredEl} = ${el * filteredEl}`);
       el * filteredEl > highestProduct
         ? (highestProduct = el * filteredEl)
         : "";
@@ -74,10 +74,38 @@ const largestProduct = (inputArray) => {
 console.log("4) largestProduct:", largestProduct(array4));
 
 // 5. Use a nested loop to compute the sum of all the numbers in an array of number pairs.
-//    const array5 = [[1, 3], [8, 9], [2, 16]] // becomes 39.
+const array5 = [
+  [1, 3],
+  [8, 9],
+  [2, 16],
+]; // becomes 39.
+
+// Add each number together to get the total of all nested numbers
+
+const nestedSums = (inputArray) => {
+  let sums = null;
+  for (const nestedArray of inputArray) {
+    // console.log("nested Array", nestedArray, nestedArray[0], nestedArray[1]);
+    sums += nestedArray[0] + nestedArray[1];
+  }
+  return sums;
+};
+
+console.log("5) nestedSums:", nestedSums(array5));
 
 // 6. Use a nested loop with two arrays of numbers to create a new array of the sums of each combination of numbers.
-//    const array6 = [1, 2] and [6, 7, 8] // becomes [7, 8, 9, 8, 9, 10].
+const array6a = [1, 2];
+const array6b = [6, 7, 8]; // becomes [7, 8, 9, 8, 9, 10].
+
+const sums = (inputArray1, inputArray2) => {
+  return inputArray1.reduce((acc, cur) => {
+    for (const el of inputArray2) {
+      acc.push(cur + el);
+    }
+    return acc;
+  }, []);
+};
+console.log("6) Sums:", sums(array6a, array6b));
 
 // 7. Use a nested loop with an array of numbers to compute an array with every combination of products from each number.
 //    const array7 = [2, 8, 3] // becomes [4, 16, 6, 16, 64, 24, 6, 24, 9].
