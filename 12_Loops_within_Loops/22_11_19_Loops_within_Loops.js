@@ -108,10 +108,47 @@ const sums = (inputArray1, inputArray2) => {
 console.log("6) Sums:", sums(array6a, array6b));
 
 // 7. Use a nested loop with an array of numbers to compute an array with every combination of products from each number.
-//    const array7 = [2, 8, 3] // becomes [4, 16, 6, 16, 64, 24, 6, 24, 9].
+const array7 = [2, 8, 3]; // becomes [4, 16, 6, 16, 64, 24, 6, 24, 9].
+// We don't need to filter the current element out
+
+const products = (inputArray) => {
+  return inputArray.reduce((acc, cur) => {
+    inputArray.forEach((el) => acc.push(el * cur));
+    return acc;
+  }, []);
+};
+
+console.log("7) Products:", products(array7));
 
 // 8. Use a nested loop to find the largest sum of any two different numbers within an array.
-//    const array8 = [1, 8, 3, 10] // becomes 18.
+const array8 = [1, 8, 3, 10]; // becomes 18.
+
+const maxProduct = (inputArray) => {
+  // Store an initial value - null
+  //
+  let biggest = null;
+
+  // Basic 'for' loops
+  // for (let i = 0; i < inputArray.length; i++) {
+  //   for (let i2 = i + 1; i2 < inputArray.length; i2++) {
+  //     inputArray[i] + inputArray[i2] > biggest
+  //       ? (biggest = inputArray[i] + inputArray[i2])
+  //       : "";
+  //   }
+  // }
+
+  // Attempt at shorter or more readable
+  inputArray.forEach((el, i) => {
+    const otherArrayElements = inputArray.slice(i + 1, inputArray.length);
+    for (const el2 of otherArrayElements) {
+      el + el2 > biggest ? (biggest = el + el2) : "";
+    }
+  });
+
+  return biggest;
+};
+
+console.log("8) maxProduct:", maxProduct(array8));
 
 // 9. Use nested loops with an array of numbers to compute a new array containing the first two numbers (from the original array) that add up to the number 10. If there are no two numbers that add up to 10, return false.
 //    const array9 = [2, 5, 3, 1, 0, 7, 11] // becomes [3, 7].

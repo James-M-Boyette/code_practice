@@ -2,7 +2,8 @@
 //    const array1 = [[1, 3], [8, 9], [2, 16]] // becomes [1, 3, 8, 9, 2, 16].
 
 // 2. Use a nested loop with two arrays of strings to create a new array of strings with each string combined.
-//    const array2 =  ["a", "b", "c"] and ["d", "e", "f", "g"] // becomes ["ad", "ae", "af", "ag", "bd", "be", "bf", "bg", "cd", "ce", "cf", "cg"].
+//    const array2a =  ["a", "b", "c"]
+// const array2b = ["d", "e", "f", "g"] // becomes ["ad", "ae", "af", "ag", "bd", "be", "bf", "bg", "cd", "ce", "cf", "cg"].
 
 // 3. Use a nested loop with one array of strings to create a new array that contains every combination of each string with every other string in the array.
 //    const array3 = ["a", "b", "c", "d"] // becomes ["ab", "ac", "ad", "ba", "bc", "bd", "ca", "cb", "cd", "da", "db", "dc"].
@@ -14,7 +15,8 @@
 //    const array5 = [[1, 3], [8, 9], [2, 16]] // becomes 39.
 
 // 6. Use a nested loop with two arrays of numbers to create a new array of the sums of each combination of numbers.
-//    const array6 = [1, 2] and [6, 7, 8] // becomes [7, 8, 9, 8, 9, 10].
+//    const array6a = [1, 2]
+// const array6b = [6, 7, 8] // becomes [7, 8, 9, 8, 9, 10].
 
 // 7. Use a nested loop with an array of numbers to compute an array with every combination of products from each number.
 //    const array7 = [2, 8, 3] // becomes [4, 16, 6, 16, 64, 24, 6, 24, 9].
