@@ -151,9 +151,33 @@ const maxProduct = (inputArray) => {
 console.log("8) maxProduct:", maxProduct(array8));
 
 // 9. Use nested loops with an array of numbers to compute a new array containing the first two numbers (from the original array) that add up to the number 10. If there are no two numbers that add up to 10, return false.
-//    const array9 = [2, 5, 3, 1, 0, 7, 11] // becomes [3, 7].
+const array9 = [2, 5, 3, 1, 7, 8, 11]; // becomes [3, 7].
+
+const equalsTen = (inputArray) => {
+  let hash = {};
+
+  for (const el of inputArray) {
+    const target = 10 - el;
+    if (hash[target]) {
+      return [el, target];
+    }
+    hash[el] = true;
+  }
+  return false;
+};
+
+console.log("9) equalsTen:", equalsTen(array9));
 
 //10. Use a nested loop to convert an array of string arrays into a single string.
-//    const array10 = [["a", "man"], ["a", "plan"], ["a", "canal"], ["panama"]] // becomes "amanaplanacanalpanama".
+const array10 = [["a", "man"], ["a", "plan"], ["a", "canal"], ["panama"]]; // becomes "amanaplanacanalpanama".
 
+const oneString = (inputArray) => {
+  let sentance = "";
+  for (const nestedArray of inputArray) {
+    nestedArray.forEach((el) => (sentance += el));
+  }
+  return sentance;
+};
+
+console.log("10) oneString:", oneString(array10));
 //SOLUTIONS: https://gist.github.com/peterxjang/af8985dc4fb07ea14b4bd6ba41cb08f8
