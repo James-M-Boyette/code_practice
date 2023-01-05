@@ -16,8 +16,9 @@ const string3 = "abcdefghijklmnopqrstuvwxyz"
 const dollarPresent = (inputString) => {
 	// Check if '$' exists
 	// console.log('inputString: ', inputString);
-	const elements = inputString.split('')
-	for (el of elements) {
+	// const elements = inputString.split('')
+	// for (el of elements) {
+	for (el of inputString) {
 		if (el == '$') {
 			// console.log('$ found!');
 			return true
