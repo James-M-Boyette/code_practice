@@ -10,6 +10,7 @@ Here, I commit my near-daily deliberate practice. The sense of accomplishment it
 - [ ] Trying to learn how hash maps can be used in place of nested loops
 
 #### In the future, I hope to ...
+- [ ] Add Jest test cases
 - [ ] Be able to complete an entire sheet in under 20 mins (in JS)
 - [ ] Python
 - [ ] C/C++/C#
