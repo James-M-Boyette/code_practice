@@ -17,7 +17,6 @@
         - 
  */
 // Output: "so thought i yeah it isn't cool so is popcorn"
-import * from './5_hamming_TEMP copy.js'
 
 const string1 = `popcorn is so cool isn't it yeah i thought so`
 
