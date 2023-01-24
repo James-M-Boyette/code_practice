@@ -82,9 +82,9 @@ const isPalindrome = (inputNum) => {
         // Compare last digit to first digit
         // If the same, remove both and repeat
         if (storage[0] === storage[inputLength - 1]) {
-            console.log('match!', storage[0], storage[inputLength - 1]);
+            // console.log('match!', storage[0], storage[inputLength - 1]);
             storage = storage.slice(1, inputLength - 1)
-            console.log('storage', storage);
+            // console.log('storage', storage);
             inputLength -= 2
         } else {
             return false
@@ -94,16 +94,32 @@ const isPalindrome = (inputNum) => {
     return true
 }
 
-// console.log('isPalindrome? ', isPalindrome(1));
+// Since 9 is the largest single digit, and we plan on decrementing two numbers, we want to create two starting numbers
+const set9 = (numberOfDigits) => {
+    let nines = "9"
+    for (let i = 2; i <= numberOfDigits; i++) {
+        nines += 9
+    }
+    return Number(nines)
+}
 
 const greatestPalindrome = (numberOfDigits) => {
-    const biggestStarting = null
-    for (let i = 0; i < numberOfDigits; i++) {
-        
+    let num1 = set9(numberOfDigits)
+    let num2 = set9(numberOfDigits)
+    // let num2 = 91
+    let floor = 0
+    let found = false
+    console.log('test: ', isPalindrome(num1 * num2));
+    for (let i = num2; !isPalindrome(num1 * num2); i--) {
+        num2 -= 1
+        console.log('num2: ', num2);
     }
+
+    return [num1, num2]
 }
 
 console.log('isPalindrome? ', greatestPalindrome(2));
+// console.log('isPalindrome? ', set9(4));
 
 
 
