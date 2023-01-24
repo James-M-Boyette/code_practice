@@ -29,7 +29,6 @@
 
 const collatzConjectureSteps = (inputNum) => {
    // Catch Edge Cases
-   console.log(typeof inputNum);
    if (typeof inputNum != "number" || inputNum <= 0) {
       return "not a natural number"
    }
