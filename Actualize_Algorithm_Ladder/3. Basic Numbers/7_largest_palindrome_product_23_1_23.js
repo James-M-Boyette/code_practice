@@ -69,38 +69,46 @@
 const isPalindrome = (inputNum) => {
     let storage = inputNum.toString()
     let inputLength = storage.length
+    // Check whether the number is larger than 1 digit long
     if (inputLength <= 1) {
         console.log("WARNING: not a number with two or more digits")
         return false
     }
-    
-    // console.log('storage length', storage.length);
-    // console.log('storage last', storage[inputLength - 1]);
 
-    // Check whether the number is larger than 1 digit long
+    // While the inputNum is larger then 1 digit ...
     while (inputLength > 1) {
         // Compare last digit to first digit
-        // If the same, remove both and repeat
+        // If the same, remove both, check new length of inputNum and (if still greater than 1), repeat comparison and slicing
         if (storage[0] === storage[inputLength - 1]) {
-            // console.log('match!', storage[0], storage[inputLength - 1]);
             storage = storage.slice(1, inputLength - 1)
-            // console.log('storage', storage);
             inputLength -= 2
         } else {
+            // If the first and last digit *aren't* the same, return 'false' (not a palindrome)
             return false
         }
     }
     
+    // Numbers with either even or odd amounts of digits / places can be palindromes (1001 and 101), so ...
+    // If the inputNum was originally larger than one digit, and had matching first and last digits until there was one digit or less remaining, then the number was a palindrome; return 'true'
     return true
 }
 
 // Since 9 is the largest single digit, and we plan on decrementing two numbers, we want to create two starting numbers
-const set9 = (numberOfDigits) => {
-    let nines = "9"
-    for (let i = 2; i <= numberOfDigits; i++) {
-        nines += 9
-    }
-    return Number(nines)
+// const set9 = (numberOfDigits) => {
+//     let nines = "9"
+//     for (let i = 2; i <= numberOfDigits; i++) {
+//         nines += 9
+//     }
+//     return Number(nines)
+// }
+
+// v2 (from Actualize Slack)
+function set9(numberOfDigits) {
+    return Number('9'.repeat(numberOfDigits))
+}
+
+const decrementer = (num1, num2) => {
+
 }
 
 const greatestPalindrome = (numberOfDigits) => {
@@ -108,12 +116,37 @@ const greatestPalindrome = (numberOfDigits) => {
     let num2 = set9(numberOfDigits)
     // let num2 = 91
     let floor = 0
-    let found = false
-    console.log('test: ', isPalindrome(num1 * num2));
-    for (let i = num2; !isPalindrome(num1 * num2); i--) {
-        num2 -= 1
-        console.log('num2: ', num2);
+    // let found = false
+    // console.log('isPalindrome: ', isPalindrome(num1 * num2));
+    let largestPalindrome = 0
+    // Start with 99 and 99
+    // Decrease the second by 1 until a palindrome is found
+    // Store that palindrome
+    // Decrease the first by 1 and repeat the previous
+    // Compare the two palindromes & store the larger of the two
+    console.log('num1 & num 2: ', num1, num2);
+    for (let i = num1; i > 10; i--) {
+        for (let j = num2; j > 10; j-- ) {
+            if (isPalindrome(i * j)) {
+                console.log('is palindrome: ', i, j, i*j);
+                if (floor < j) {
+                    floor = j
+                }
+                break
+            }
+            console.log('j: ', j);
+        }
+        console.log('i: ', i);
+        
     }
+    // for (let i = num2; !isPalindrome(num1 * num2); i--) {
+    //     // Decrement num2 until num1 * num2 produces a palindrome
+    //     num2 -= 1
+    //     // Store num2 as the "floor" - the lowest second number needed to produce a palindrome
+    //     floor = num2
+    //     console.log('num2: ', num2);
+    // }
+    console.log('floor:', floor);
 
     return [num1, num2]
 }
@@ -125,4 +158,5 @@ console.log('isPalindrome? ', greatestPalindrome(2));
 
 /** Post-Assesment: 
     - I forgot (for a second time), that I need to convert numbers to strings in order to read their length
+    - I learned that 'break' will break the *current* loop only - so it will stop a nested/child loop without stopping the parent loop
  */
