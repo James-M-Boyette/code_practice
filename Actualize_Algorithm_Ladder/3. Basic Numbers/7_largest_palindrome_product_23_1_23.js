@@ -68,7 +68,7 @@
 
 const isPalindrome = (inputNum) => {
   let numberToBeTested = inputNum.toString();
-  let inputLength = storage.length;
+  let inputLength = numberToBeTested.length;
   // Check whether the number is larger than 1 digit long
   if (inputLength <= 1) {
     console.log("WARNING: not a number with two or more digits");
@@ -136,7 +136,7 @@ const greatestPalindrome = (numberOfDigits) => {
   return largestPalindrome;
 };
 
-console.log("largest palindrome? ", greatestPalindrome(3));
+console.log("largest palindrome? ", greatestPalindrome(4));
 
 /** Post-Assesment: 
     - I forgot (for a second time), that I need to convert numbers to strings in order to read their length
